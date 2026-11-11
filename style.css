@@ -1,0 +1,180 @@
+/* ==========================================
+   FALLENCODE // VINTAGE PUNK & CYBERPUNK STYLES
+   ========================================== */
+
+:root {
+    --bg-dark: #0b0713;
+    --bg-darker: #06040a;
+    --purple-main: #3b1f5e;
+    --purple-light: #5a2e8c;
+    --fuchsia-neon: #ff2a85;
+    --fuchsia-hover: #ff529f;
+    --text-muted-custom: #b0a4c0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: #f1e6f7;
+    font-family: 'Space Grotesk', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Custom Fonts */
+.font-vt323 { font-family: 'VT323', monospace; letter-spacing: 1px; }
+.font-syne { font-family: 'Syne', sans-serif; }
+.font-space { font-family: 'Space Grotesk', sans-serif; }
+
+.text-fuchsia { color: var(--fuchsia-neon) !important; }
+.text-purple { color: #b185db !important; }
+.bg-purple { background-color: var(--purple-main) !important; }
+.bg-darker { background-color: var(--bg-darker) !important; }
+
+/* Cyberpunk Scanlines Effect */
+.scanlines {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    background-size: 100% 4px, 6px 100%;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.5;
+}
+
+/* Navbar */
+.cyberpunk-nav {
+    background: rgba(11, 7, 19, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 2px dashed var(--fuchsia-neon);
+}
+
+.navbar-brand:hover {
+    text-shadow: 0 0 10px var(--fuchsia-neon);
+}
+
+/* Buttons */
+.btn-fuchsia {
+    background-color: var(--fuchsia-neon);
+    color: #fff;
+    border: 2px solid var(--fuchsia-neon);
+    font-family: 'VT323', monospace;
+    transition: all 0.3s ease;
+}
+
+.btn-fuchsia:hover {
+    background-color: transparent;
+    color: var(--fuchsia-neon);
+    box-shadow: 0 0 15px var(--fuchsia-neon);
+}
+
+.btn-outline-fuchsia {
+    color: var(--fuchsia-neon);
+    border: 2px solid var(--fuchsia-neon);
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-fuchsia:hover, .btn-outline-fuchsia.active {
+    background-color: var(--fuchsia-neon);
+    color: #fff;
+    box-shadow: 0 0 15px var(--fuchsia-neon);
+}
+
+/* Polaroid Photo Frame */
+.polaroid-frame {
+    background: #f4ecdf;
+    border: 3px solid #332244;
+    box-shadow: 8px 8px 0px var(--fuchsia-neon);
+    transform: rotate(2deg);
+    transition: transform 0.3s ease;
+}
+
+.polaroid-frame:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.tape-top {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    width: 120px;
+    height: 30px;
+    background: rgba(235, 215, 150, 0.85);
+    border: 1px dashed #b5a278;
+    z-index: 5;
+}
+
+.filter-vintage {
+    filter: contrast(110%) saturate(85%) sepia(20%);
+}
+
+/* Torn Divider */
+.torn-divider {
+    height: 12px;
+    background: linear-gradient(135deg, var(--purple-main) 25%, transparent 25%) -10px 0, linear-gradient(225deg, var(--purple-main) 25%, transparent 25%) -10px 0;
+    background-size: 20px 20px;
+}
+
+/* Stack Cards */
+.stack-card {
+    background: var(--bg-darker);
+    border: 2px solid var(--purple-main) !important;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stack-card:hover {
+    border-color: var(--fuchsia-neon) !important;
+    box-shadow: 0 0 20px rgba(255, 42, 133, 0.3);
+    transform: translateY(-5px);
+}
+
+.corner-tag {
+    position: absolute;
+    top: 0; right: 0;
+    background: var(--purple-main);
+    color: var(--fuchsia-neon);
+    padding: 2px 8px;
+    font-size: 0.85rem;
+    border-bottom-left-radius: 6px;
+}
+
+/* Project Cards */
+.project-card {
+    background: var(--bg-darker);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    border-color: #fff !important;
+    box-shadow: 0 0 25px rgba(255, 42, 133, 0.4);
+    transform: translateY(-5px);
+}
+
+/* Social Buttons */
+.social-icon-btn {
+    width: 50px;
+    height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.social-icon-btn:hover {
+    background-color: var(--fuchsia-neon);
+    color: #fff !important;
+    box-shadow: 0 0 15px var(--fuchsia-neon);
+    transform: scale(1.1);
+}
+
+/* Back to Top */
+#backToTop {
+    width: 50px;
+    height: 50px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
