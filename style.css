@@ -178,3 +178,35 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+
+/* ==========================================
+   MODO CLARO (LIGHT THEME PUNK)
+   ========================================== */
+body.light-mode {
+    background-color: #f4ecdf !important;
+    color: #1a1128 !important;
+}
+
+body.light-mode .cyberpunk-nav {
+    background: rgba(244, 236, 223, 0.9) !important;
+}
+
+body.light-mode .bg-darker {
+    background-color: #e6dcce !important;
+}
+
+body.light-mode .stack-card,
+body.light-mode .project-card {
+    background-color: #fdfaf6 !important;
+    border-color: var(--purple-main) !important;
+    color: #1a1128 !important;
+}
+
+body.light-mode .text-light {
+    color: #1a1128 !important;
+}
+
+body.light-mode .text-muted {
+    color: #554a63 !important;
+}
