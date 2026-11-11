@@ -1,10 +1,10 @@
 DOCUMENTACIO PROYECTO PAG WEB fallencode CYBERPUNK 2
 
-URL DEL REPOSITORIO: GENEKRISTI/fallencode-portafolio/
+URL DEL REPOSITORIO: GENEKRISTI/fallencode-portafolio
 
 URL GITHUB PAGES: https://genekristi.github.io/fallencode-portafolio/
 
-URL DE VERCEL: fallencode-portafolio.vercel.app/
+URL DE VERCEL: fallencode-portafolio.vercel.app
 
 
 1. Descripción del Proyecto Desarrollé el portafolio web profesional y responsivo bajo la marca fallencode para exhibir mis habilidades como Desarrollador Full-Stack e Ingeniero de Inteligencia Artificial (GENESIS CABA). El proyecto fusiona una estética disruptiva de fanzine vintage punk y cyberpunk retro (modo oscuro con acentos en morado eléctrico y rosado fucsia neón) con los estándares más rigurosos de la ingeniería web moderna: HTML5 semántico, CSS3 modular, Bootstrap 5 y JavaScript puro (ES6+).
