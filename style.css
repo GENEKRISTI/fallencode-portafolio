@@ -181,7 +181,7 @@ body {
 
 
 /* ==========================================
-   MODO CLARO (LIGHT THEME PUNK)
+   ESTILOS PARA EL MODO CLARO (LIGHT THEME)
    ========================================== */
 body.light-mode {
     background-color: #f4ecdf !important;
@@ -189,11 +189,11 @@ body.light-mode {
 }
 
 body.light-mode .cyberpunk-nav {
-    background: rgba(244, 236, 223, 0.9) !important;
+    background: rgba(244, 236, 223, 0.95) !important;
 }
 
 body.light-mode .bg-darker {
-    background-color: #e6dcce !important;
+    background-color: #e8dfd1 !important;
 }
 
 body.light-mode .stack-card,
@@ -209,4 +209,5 @@ body.light-mode .text-light {
 
 body.light-mode .text-muted {
     color: #554a63 !important;
+}
 }
