@@ -54,7 +54,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 target.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
-
+                   
+                });
+            }
+        });
+    });
+});
 
 
                    // Toggle Dark/Light Mode
@@ -88,13 +93,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
-
-
-
-                   
-                });
-            }
-        });
-    });
-});
