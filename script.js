@@ -54,6 +54,45 @@ document.addEventListener('DOMContentLoaded', () => {
                 target.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
+
+
+
+                   // Toggle Dark/Light Mode
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const bodyElement = document.body;
+
+    // Verificar si el usuario ya tenía un modo guardado previamente
+    if (localStorage.getItem('theme') === 'light') {
+        bodyElement.classList.add('light-mode');
+        if (themeIcon) {
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+    }
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            bodyElement.classList.toggle('light-mode');
+            
+            if (bodyElement.classList.contains('light-mode')) {
+                localStorage.setItem('theme', 'light');
+                if (themeIcon) {
+                    themeIcon.classList.replace('fa-moon', 'fa-sun');
+                }
+            } else {
+                localStorage.setItem('theme', 'dark');
+                if (themeIcon) {
+                    themeIcon.classList.replace('fa-sun', 'fa-moon');
+                }
+            }
+        });
+    }
+
+
+
+
+
+                   
                 });
             }
         });
