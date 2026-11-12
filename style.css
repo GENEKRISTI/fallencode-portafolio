@@ -3,7 +3,6 @@
    ========================================== */
 
 :root {
-   
     --bg-dark: #0b0713;
     --bg-darker: #06040a;
     --purple-main: #3b1f5e;
@@ -199,4 +198,134 @@ body {
     height: 100%;
     z-index: 0; /* Colócalo detrás de tu contenido (asegúrate de que tus secciones tengan position: relative y un z-index mayor, ej: z-index: 2) */
     pointer-events: none; /* Permite hacer clic a través del canvas sin bloquear la página */
+}
+
+
+/* ==========================================
+   MODO OSCURO POR DEFECTO (Fondo Negro / Letras Blancas)
+   ========================================== */
+body {
+    background-color: #090514 !important;
+    color: #ffffff !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body p, 
+body .lead, 
+body .text-muted, 
+body .text-custom-muted {
+    color: #ffffff !important;
+}
+
+/* ==========================================
+   MODO CLARO ACTIVADO (Fondo Blanco / Letras Negras)
+   ========================================== */
+body.light-mode {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+body.light-mode .navbar {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-bottom: 1px solid #000000 !important;
+}
+
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4,
+body.light-mode p,
+body.light-mode span,
+body.light-mode a.nav-link,
+body.light-mode .lead,
+body.light-mode .text-muted,
+body.light-mode .text-custom-muted,
+body.light-mode .text-light {
+    color: #000000 !important;
+}
+
+body.light-mode .bento-box,
+body.light-mode .card,
+body.light-mode .stack-card,
+body.light-mode .project-card {
+    background: #f4f4f4 !important;
+    border-color: #000000 !important;
+    color: #000000 !important;
+}
+
+body.light-mode #themeToggle {
+    color: #000000 !important;
+    border-color: #000000 !important;
+}
+
+body.light-mode,
+body.light-mode.bg-dark {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    filter: none !important; /* Evita que un invert() convierta el fondo en azul cian */
+}
+
+/* Asegura que las capas decorativas no tiñan el fondo en modo claro */
+body.light-mode .scanlines,
+body.light-mode .tech-grid {
+    opacity: 0.08 !important;
+    filter: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================
+   SOLUCIÓN RADICAL PARA EL MODO CLARO (Elimina cualquier cian)
+   ========================================================== */
+html.light-mode,
+body.light-mode {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    background-image: none !important; /* Elimina cualquier gradiente oculto */
+    color: #000000 !important;
+}
+
+/* Limpia contenedores generales para que no tengan colores heredados */
+body.light-mode .content-wrapper {
+    background: transparent !important;
+    background-image: none !important;
+}
+
+/* Asegura que el canvas de la Matrix sea transparente y no pinte fondo de color */
+body.light-mode #matrixCanvas {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Forzar que todas las tarjetas bento sean de un tono claro limpio */
+body.light-mode .bento-box {
+    background: #f4f1ea !important;
+    background-color: #f4f1ea !important;
+    border-color: #9d4edd !important;
+    color: #000000 !important;
+}
+
+/* Forzar texto negro nítido en todo el sitio en modo claro */
+body.light-mode h1, 
+body.light-mode h2, 
+body.light-mode h3, 
+body.light-mode h4, 
+body.light-mode p, 
+body.light-mode span,
+body.light-mode a,
+body.light-mode .lead,
+body.light-mode .text-custom-muted,
+body.light-mode .text-muted,
+body.light-mode .text-light {
+    color: #000000 !important;
 }

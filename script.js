@@ -1,15 +1,12 @@
-/* ==========================================
-   FALLENCODE // INTERACTIVE SCRIPTS
-   ========================================== */
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Project Filtering
+    // ==========================================
+    // 1. FILTROS DE PROYECTOS Y BOTÓN "VOLVER ARRIBA"
+    // ==========================================
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectItems = document.querySelectorAll('.project-item');
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Remove active class from all
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
 
@@ -27,42 +24,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Back to Top Button
     const backToTopBtn = document.getElementById('backToTop');
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTopBtn.classList.remove('d-none');
-        } else {
-            backToTopBtn.classList.add('d-none');
-        }
-    });
-
-    backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('d-none');
+            } else {
+                backToTopBtn.classList.add('d-none');
+            }
         });
-    });
 
-    // Smooth Scrolling for Navbar Links
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     });
-});
 
-
-
-document.addEventListener('DOMContentLoaded', () => {
+    // ==========================================
+    // 2. CANVAS MATRIX DIGITAL RAIN (CORREGIDO)
+    // ==========================================
     const canvas = document.getElementById('matrixCanvas');
     if (!canvas) return;
     
@@ -75,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Caracteres estilo Matrix y ciberespacio
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+-=[]{}|;:,./<>?アイウエオカキクケコサシスセソタチツテトナニヌネノ';
     const charArray = chars.split('');
     const fontSize = 16;
@@ -90,26 +78,34 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     initDrops();
-    window.addEventListener('resize', initDrops);
+    window.addEventListener('resize', resizeCanvas);
 
-    // Colores de estilo cyberfunk (fucsia, cian, morado, azul eléctrico)
     const cyberColors = ['#ff2a85', '#00f0ff', '#9d4edd', '#3a86ff'];
 
     function drawMatrix() {
-        // Detecta si tu página tiene modo claro u oscuro activo para adaptar el fondo del rastro
         const isLight = document.body.classList.contains('light-mode');
         
-        // Estela semitransparente para generar el efecto de desvanecimiento
-        ctx.fillStyle = isLight ? 'rgba(238, 242, 255, 0.12)' : 'rgba(9, 5, 20, 0.09)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        // En modo claro borramos completamente el canvas para que no deje estela de color cian/azul
+        if (isLight) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        } else {
+            // Estela oscura clásica para el modo cyberpunk
+            ctx.fillStyle = 'rgba(9, 5, 20, 0.12)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
 
         ctx.font = fontSize + 'px monospace';
 
         for (let i = 0; i < drops.length; i++) {
             const text = charArray[Math.floor(Math.random() * charArray.length)];
-            const color = cyberColors[Math.floor(Math.random() * cyberColors.length)];
             
-            ctx.fillStyle = color;
+            // Color de las letras según el modo activo
+            if (isLight) {
+                ctx.fillStyle = '#4a3b6c'; // Tono oscuro legible sobre fondo blanco
+            } else {
+                ctx.fillStyle = cyberColors[Math.floor(Math.random() * cyberColors.length)];
+            }
+            
             ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
             if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
@@ -119,6 +115,61 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Velocidad de la animación (42 milisegundos por frame)
     setInterval(drawMatrix, 42);
+
+    // ==========================================
+    // 3. MODO CLARO / OSCURO (CON PERSISTENCIA)
+    // ==========================================
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const bodyElement = document.body;
+
+    if (localStorage.getItem('theme') === 'light') {
+        bodyElement.classList.add('light-mode');
+        if (themeIcon) themeIcon.classList.replace('fa-sun', 'fa-moon');
+    }
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            bodyElement.classList.toggle('light-mode');
+            
+            if (bodyElement.classList.contains('light-mode')) {
+                localStorage.setItem('theme', 'light');
+                if (themeIcon) themeIcon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                localStorage.setItem('theme', 'dark');
+                if (themeIcon) themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+    }
 });
+
+
+function drawMatrix() {
+        const isLight = document.body.classList.contains('light-mode');
+        
+        // En modo claro limpiamos el canvas para que el fondo sea blanco limpio
+        if (isLight) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        } else {
+            // Estela oscura clásica para el modo cyberpunk
+            ctx.fillStyle = 'rgba(9, 5, 20, 0.12)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        ctx.font = fontSize + 'px monospace';
+
+        for (let i = 0; i < drops.length; i++) {
+            const text = charArray[Math.floor(Math.random() * charArray.length)];
+            
+            // <--- AQUÍ ESTÁ EL CAMBIO: Mantiene los colores neón vibrantes en ambos modos --->
+            ctx.fillStyle = cyberColors[Math.floor(Math.random() * cyberColors.length)];
+            
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+            drops[i]++;
+        }
+    }
