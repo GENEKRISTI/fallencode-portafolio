@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 target.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
-                   
                 });
             }
         });
@@ -63,35 +62,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// Funcionalidad de Alternancia Modo Claro / Oscuro
-const themeToggleBtn = document.getElementById('themeToggle');
-const themeIcon = document.getElementById('themeIcon');
-const bodyElement = document.body;
+document.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('matrixCanvas');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
 
-// Recordar la preferencia del usuario si ya lo había activado antes
-if (localStorage.getItem('theme') === 'light') {
-    bodyElement.classList.add('light-mode');
-    if (themeIcon) {
-        themeIcon.classList.replace('fa-moon', 'fa-sun');
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     }
-}
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
 
-if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
-        bodyElement.classList.toggle('light-mode');
-        
-        if (bodyElement.classList.contains('light-mode')) {
-            localStorage.setItem('theme', 'light');
-            if (themeIcon) {
-                themeIcon.classList.replace('fa-moon', 'fa-sun');
-            }
-        } else {
-            localStorage.setItem('theme', 'dark');
-            if (themeIcon) {
-                themeIcon.classList.replace('fa-sun', 'fa-moon');
-            }
+    // Caracteres estilo Matrix y ciberespacio
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+-=[]{}|;:,./<>?アイウエオカキクケコサシスセソタチツテトナニヌネノ';
+    const charArray = chars.split('');
+    const fontSize = 16;
+    let columns = Math.floor(canvas.width / fontSize);
+    let drops = [];
+
+    function initDrops() {
+        columns = Math.floor(canvas.width / fontSize);
+        drops = [];
+        for (let x = 0; x < columns; x++) {
+            drops[x] = Math.random() * -100;
         }
-    });
-}
+    }
+    initDrops();
+    window.addEventListener('resize', initDrops);
 
-  
+    // Colores de estilo cyberfunk (fucsia, cian, morado, azul eléctrico)
+    const cyberColors = ['#ff2a85', '#00f0ff', '#9d4edd', '#3a86ff'];
+
+    function drawMatrix() {
+        // Detecta si tu página tiene modo claro u oscuro activo para adaptar el fondo del rastro
+        const isLight = document.body.classList.contains('light-mode');
+        
+        // Estela semitransparente para generar el efecto de desvanecimiento
+        ctx.fillStyle = isLight ? 'rgba(238, 242, 255, 0.12)' : 'rgba(9, 5, 20, 0.09)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.font = fontSize + 'px monospace';
+
+        for (let i = 0; i < drops.length; i++) {
+            const text = charArray[Math.floor(Math.random() * charArray.length)];
+            const color = cyberColors[Math.floor(Math.random() * cyberColors.length)];
+            
+            ctx.fillStyle = color;
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+            drops[i]++;
+        }
+    }
+
+    // Velocidad de la animación (42 milisegundos por frame)
+    setInterval(drawMatrix, 42);
+});
