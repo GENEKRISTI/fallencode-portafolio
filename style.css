@@ -347,44 +347,39 @@ body.light-mode .text-light {
 
 
 
-
-
 /* ==========================================================
-   SOLUCIÓN DEFINITIVA PARA EL FOOTER E ÍCONOS EN MODO CLARO
+   SOLUCIÓN DEFINITIVA: FOOTER CLARO EN MODO CLARO
    ========================================================== */
-
-/* 1. Fuerza el fondo claro en el footer anulando la clase .bg-darker */
 html body.light-mode footer#contact,
-html body.light-mode footer.bg-darker {
+html body.light-mode #contact.bg-darker {
     background: #f4f1ea !important;
     background-color: #f4f1ea !important;
     border-top: 2px solid #ff2a85 !important;
 }
 
-/* 2. Fuerza todos los textos del footer a negro intenso */
-html body.light-mode footer#contact h2,
-html body.light-mode footer#contact p,
-html body.light-mode footer#contact div,
-html body.light-mode footer#contact span {
+html body.light-mode #contact h2,
+html body.light-mode #contact p,
+html body.light-mode #contact div,
+html body.light-mode #contact span {
     color: #000000 !important;
 }
 
-/* 3. Fuerza los íconos sociales y sus bordes a verse sin necesidad de pasar el cursor */
-html body.light-mode footer#contact a.social-icon-btn,
-html body.light-mode footer#contact a.social-icon-btn i {
-    color: #ff2a85 !important;
-    border-color: #000000 !important;
+html body.light-mode #contact .social-icon-btn {
     background-color: #ffffff !important;
+    border-color: #000000 !important;
 }
 
-/* 4. Efecto al pasar el cursor por encima de los íconos */
-html body.light-mode footer#contact a.social-icon-btn:hover,
-html body.light-mode footer#contact a.social-icon-btn:hover i {
+html body.light-mode #contact .social-icon-btn i {
+    color: #ff2a85 !important;
+}
+
+html body.light-mode #contact .social-icon-btn:hover {
     background-color: #ff2a85 !important;
-    color: #ffffff !important;
-    border-color: #ff2a85 !important;
 }
 
+html body.light-mode #contact .social-icon-btn:hover i {
+    color: #ffffff !important;
+}
 
 
 
