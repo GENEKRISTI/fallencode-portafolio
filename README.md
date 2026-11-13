@@ -101,7 +101,7 @@ o	Dejé la configuración de compilación predeterminada para proyectos estátic
 
 
 
-<img width="895" height="503" alt="image" src="https://github.com/user-attachments/assets/1d29a2e3-a1cf-4763-a44c-5f7e599d00e4" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/ee5f2131-0921-4ff7-8d02-8cf36390f15d" />
 
 
 <img width="600" height="495" alt="image" src="https://github.com/user-attachments/assets/f3bdc7e7-1f21-43c7-9dda-8f51f398237b" />
