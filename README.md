@@ -83,6 +83,14 @@ o	Configuré la fuente de despliegue para que apuntara directamente a la rama pr
 o	Tras guardar los cambios, la plataforma procesó los archivos automáticamente y generó la URL pública oficial para visualizar el portafolio en la web.
 
 
+
+
+
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/f6da8e9a-1ebe-4291-a04e-1a67587ff696" />
+
+
+
+
 •	Paso 7: Despliegue Continuo en Vercel
 
 o	Me conecté a la plataforma de Vercel utilizando mis credenciales de GitHub para asegurar un rendimiento óptimo y despliegues automatizados.
