@@ -86,12 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const cyberColors = ['#ff2a85', '#00f0ff', '#9d4edd', '#3a86ff'];
 
-    
-
     function drawMatrix() {
         const isLight = document.body.classList.contains('light-mode');
         
-        // En modo claro limpiamos el canvas por completo para ver el fondo blanco limpio
+        // En modo claro borramos completamente el canvas para que no deje estela de color cian/azul
         if (isLight) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
         } else {
@@ -105,20 +103,12 @@ const cyberColors = ['#ff2a85', '#00f0ff', '#9d4edd', '#3a86ff'];
         for (let i = 0; i < drops.length; i++) {
             const text = charArray[Math.floor(Math.random() * charArray.length)];
             
-            // ESTO ES LO QUE CAMBIA: Forzamos los colores neón vibrantes en ambos modos
-            ctx.fillStyle = cyberColors[Math.floor(Math.random() * cyberColors.length)];
-            
-            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                drops[i] = 0;
+            // Color de las letras según el modo activo
+            if (isLight) {
+                ctx.fillStyle = '#4a3b6c'; // Tono oscuro legible sobre fondo blanco
+            } else {
+                ctx.fillStyle = cyberColors[Math.floor(Math.random() * cyberColors.length)];
             }
-            drops[i]++;
-        }
-    }
-
-
-
 
 
     // ==========================================
