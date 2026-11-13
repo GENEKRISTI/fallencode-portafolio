@@ -329,3 +329,29 @@ body.light-mode .text-muted,
 body.light-mode .text-light {
     color: #000000 !important;
 }
+
+
+
+/* ==========================================================
+   CORRECCIÓN PARA EL FOOTER E ÍCONOS EN MODO CLARO
+   ========================================================== */
+body.light-mode footer#contact {
+    background-color: #f4f1ea !important; /* Fondo claro para el footer */
+    border-top: 2px solid #ff2a85 !important;
+}
+
+body.light-mode footer#contact h2,
+body.light-mode footer#contact p,
+body.light-mode footer#contact div {
+    color: #000000 !important; /* Fuerza los textos a negro */
+}
+
+body.light-mode footer#contact .social-icon-btn {
+    border-color: #000000 !important; /* Borde de los círculos en negro */
+    color: #ff2a85 !important; /* Íconos en fucsia brillante para que resalten */
+}
+
+body.light-mode footer#contact .social-icon-btn:hover {
+    background-color: #ff2a85 !important;
+    color: #ffffff !important;
+}
