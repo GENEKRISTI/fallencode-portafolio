@@ -82,12 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const cyberColors = ['#ff2a85', '#00f0ff', '#9d4edd', '#3a86ff'];
 
-
-
-const cyberColors = ['#ff2a85', '#00f0ff', '#9d4edd', '#3a86ff'];
-
-
- function drawMatrix() {
+    function drawMatrix() {
         const isLight = document.body.classList.contains('light-mode');
         
         // En modo claro borramos completamente el canvas para que no deje estela de color cian/azul
@@ -122,25 +117,6 @@ const cyberColors = ['#ff2a85', '#00f0ff', '#9d4edd', '#3a86ff'];
 
     setInterval(drawMatrix, 42);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
     // ==========================================
     // 3. MODO CLARO / OSCURO (CON PERSISTENCIA)
     // ==========================================
@@ -169,31 +145,3 @@ const cyberColors = ['#ff2a85', '#00f0ff', '#9d4edd', '#3a86ff'];
 });
 
 
-function drawMatrix() {
-        const isLight = document.body.classList.contains('light-mode');
-        
-        // En modo claro limpiamos el canvas para que el fondo sea blanco limpio
-        if (isLight) {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-        } else {
-            // Estela oscura clásica para el modo cyberpunk
-            ctx.fillStyle = 'rgba(9, 5, 20, 0.12)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-        }
-
-        ctx.font = fontSize + 'px monospace';
-
-        for (let i = 0; i < drops.length; i++) {
-            const text = charArray[Math.floor(Math.random() * charArray.length)];
-            
-            // <--- AQUÍ ESTÁ EL CAMBIO: Mantiene los colores neón vibrantes en ambos modos --->
-            ctx.fillStyle = cyberColors[Math.floor(Math.random() * cyberColors.length)];
-            
-            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                drops[i] = 0;
-            }
-            drops[i]++;
-        }
-    }
