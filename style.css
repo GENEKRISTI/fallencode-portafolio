@@ -329,3 +329,61 @@ body.light-mode .text-muted,
 body.light-mode .text-light {
     color: #000000 !important;
 }
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================
+   CORRECCIÓN FINAL: FONDO BLANCO Y FOOTER EN MODO CLARO
+   ========================================================== */
+html.light-mode,
+body.light-mode {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* Forzar texto negro en todo el cuerpo y footer */
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode h4,
+body.light-mode h5,
+body.light-mode h6,
+body.light-mode p,
+body.light-mode span,
+body.light-mode a,
+body.light-mode li,
+body.light-mode .lead,
+body.light-mode .text-muted,
+body.light-mode .text-custom-muted,
+body.light-mode .text-light {
+    color: #000000 !important;
+}
+
+/* CORRECCIÓN DEL FOOTER EN MODO CLARO (Pasa de negro a claro con bordes legibles) */
+body.light-mode footer#contact,
+body.light-mode .bg-darker {
+    background: #f4f1ea !important;
+    background-color: #f4f1ea !important;
+    border-color: #9d4edd !important;
+    color: #000000 !important;
+}
+
+body.light-mode footer h2,
+body.light-mode footer p,
+body.light-mode footer div {
+    color: #000000 !important;
+}
+
+/* Canvas transparente */
+body.light-mode #matrixCanvas {
+    background: transparent !important;
+    background-color: transparent !important;
+}
